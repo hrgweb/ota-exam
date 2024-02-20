@@ -38,10 +38,6 @@ class NoteService
 
     public function update()
     {
-        // $note->note = $validated['note'];
-        // $note->description = $validated['description'];
-        // $note->save();
-
         return Note::where('id', $this->request['id'])->update($this->request);
     }
 
