@@ -29,4 +29,12 @@ class NoteTest extends TestCase
             ->assertOk()
             ->assertJson(['success' => true]);
     }
+
+    public function test_can_remove_note(): void
+    {
+        $note = Note::factory()->create();
+
+        $this->deleteJson(route('notes.destroy', ['note' => $note->id]))
+            ->assertNoContent();
+    }
 }

@@ -34,10 +34,21 @@ class NoteController extends Controller
         ]);
 
         try {
-            $note->note = request()->input('note');
-            $note->description = request()->input('description');
+            $note->note = $validated['note'];
+            $note->description = $validated['description'];
             $note->save();
             return response()->json(['success' => true], 200);
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json($e->getMessage(), 500);
+        }
+    }
+
+    public function destroy(int $id)
+    {
+        try {
+            Note::destroy($id);
+            return response()->json(null, 204);
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json($e->getMessage(), 500);
