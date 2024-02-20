@@ -11,6 +11,16 @@ class NoteTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_fetch_all_notes(): void
+    {
+        // create 2 notes
+        Note::factory(2)->create();
+
+        $response = $this->getJson(route('notes.index'))->assertOk();
+
+        $this->assertEquals(2, count($response->json()));
+    }
+
     public function test_can_add_note(): void
     {
         $body = Note::factory()->make();

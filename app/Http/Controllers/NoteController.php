@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Log;
 
 class NoteController extends Controller
 {
+    public function index()
+    {
+        try {
+            $notes = Note::all();
+            return response()->json($notes, 200);
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json($e->getMessage(), 500);
+        }
+    }
+
     public function store()
     {
         try {
