@@ -26,3 +26,33 @@
 4. Next run `php artisan key:generate`, `php artisan migrate` and `php artisan serve`.
 
 6. Now you are ready to test the api endpoints.
+
+
+## Test
+1. In docker: run `sail test`.
+2. If not: run `php artisan test`.
+
+## API Endpoints
+> To test the api endpoints make sure you are using API tools like **postman**.
+1. **GET** - Fetch all notes `http://localhost:8010/api/notes`.
+2. **GET** - Find a note `http://localhost:8010/api/notes/{id}`.
+3. **POST** - Save a note `http://localhost:8010/api/notes`.
+
+    3.1. Make sure to **Body** is set to *json*.
+    `e.g
+        {
+            "note": "note",
+            "description": "another sample desc"
+        }
+    `
+4. **PUT** - Update a note `http://localhost:8010/api/notes/{id}`.
+
+    4.1. Make sure to **Body** is set to *json*.
+    `e.g
+        {
+            "id": 1,
+            "note": "note",
+            "description": "another sample desc"
+        }
+    `.
+5. **DELETE** - Remove a note `http://localhost:8010/api/notes/{id}`.
