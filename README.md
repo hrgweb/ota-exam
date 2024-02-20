@@ -41,8 +41,8 @@
     3.1. Make sure to **Body** is set to *json*.
     `e.g
         {
-            "note": "note",
-            "description": "another sample desc"
+            "title": "note",
+            "body": "another sample desc"
         }
     `
 4. **PUT** - Update a note `http://localhost:8010/api/notes/{id}`.
@@ -51,8 +51,8 @@
     `e.g
         {
             "id": 1,
-            "note": "note",
-            "description": "another sample desc"
+            "title": "note",
+            "body": "another sample desc"
         }
     `.
 5. **DELETE** - Remove a note `http://localhost:8010/api/notes/{id}`.
