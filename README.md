@@ -6,6 +6,8 @@
 
 2. Create a copy of .env file from .env.example by running `cp .env.example .env`
 
+    2.1. Update .env file specifically **DB_CONNECTION** to `DB_CONNECTION=sqlite` and remove all **DB_** e.g **DB_HOST**.
+
 > If using Docker Desktop
 
 3. Make sure you are in the working directory. Then in terminal run `docker run --rm
@@ -16,7 +18,7 @@
     composer install --ignore-platform-reqs`
 
     This will install packages for app requirements.
-4. Next run `sail up -d` and `sail artisan key:generate`.
+4. Next run `sail up -d`, `sail artisan migrate` and `sail artisan key:generate`.
 
 > If not using Docker
 
