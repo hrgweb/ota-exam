@@ -17,8 +17,8 @@ class NoteFactory extends Factory
     public function definition(): array
     {
         return [
-            'note' => fake()->sentence(),
-            'description' => fake()->paragraph()
+            'title' => fake()->sentence(),
+            'body' => fake()->paragraph()
         ];
     }
 }

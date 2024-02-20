@@ -26,7 +26,7 @@ class NoteService
     {
         $note = Note::find($id);
 
-        if (!$note) throw new Exception('No note found.');
+        if (!$note) throw new Exception('note not found.');
 
         return $note;
     }

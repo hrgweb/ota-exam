@@ -36,8 +36,8 @@ class NoteController extends Controller
     {
         try {
             $validated = request()->validate([
-                'note' => 'required',
-                'description' => 'required'
+                'title' => 'required',
+                'body' => 'required'
             ]);
 
             $note = NoteService::make($validated)->save();
@@ -51,8 +51,8 @@ class NoteController extends Controller
     public function update(int $id)
     {
         $validated = request()->validate([
-            'note' => 'required',
-            'description' => 'required'
+            'title' => 'required',
+            'body' => 'required'
         ]);
 
         try {

@@ -40,8 +40,8 @@ class NoteTest extends TestCase
         $note = Note::factory()->create();
 
         $this->putJson(route('notes.update', ['note' => $note->id]), [
-            'note' => 'updated note',
-            'description' => 'updated desc'
+            'title' => 'updated note',
+            'body' => 'updated desc'
         ])
             ->assertOk()
             ->assertJson(['success' => true]);
