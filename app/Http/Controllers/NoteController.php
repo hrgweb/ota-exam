@@ -24,12 +24,7 @@ class NoteController extends Controller
     public function show(int $id)
     {
         try {
-            // $note = Note::find($id);
-
-            // if (!$note) throw new Exception('No note found.');
-
             $note = NoteService::find($id);
-
             return response()->json($note, 200);
         } catch (Exception $e) {
             Log::error($e->getMessage());
@@ -45,9 +40,7 @@ class NoteController extends Controller
                 'description' => 'required'
             ]);
 
-            // $note = Note::create($validated);
             $note = NoteService::make($validated)->save();
-
             return response()->json($note, 201);
         } catch (Exception $e) {
             Log::error($e->getMessage());
@@ -55,7 +48,6 @@ class NoteController extends Controller
         }
     }
 
-    // public function update(Note $note)
     public function update(int $id)
     {
         $validated = request()->validate([
@@ -64,10 +56,6 @@ class NoteController extends Controller
         ]);
 
         try {
-            // $note->note = $validated['note'];
-            // $note->description = $validated['description'];
-            // $note->save();
-
             NoteService::make(array_merge($validated, ['id' => $id]))->update();
             return response()->json(['success' => true], 200);
         } catch (Exception $e) {
@@ -79,7 +67,6 @@ class NoteController extends Controller
     public function destroy(int $id)
     {
         try {
-            // Note::destroy($id);
             NoteService::make(['id' => $id])->remove();
             return response()->json(null, 204);
         } catch (Exception $e) {
