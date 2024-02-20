@@ -25,4 +25,22 @@ class NoteController extends Controller
             return response()->json($e->getMessage(), 500);
         }
     }
+
+    public function update(Note $note)
+    {
+        $validated = request()->validate([
+            'note' => 'required',
+            'description' => 'required'
+        ]);
+
+        try {
+            $note->note = request()->input('note');
+            $note->description = request()->input('description');
+            $note->save();
+            return response()->json(['success' => true], 200);
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json($e->getMessage(), 500);
+        }
+    }
 }
