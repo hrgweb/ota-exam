@@ -1,20 +1,19 @@
 ## How to setup the app
 
-1. Clone the repo: on terminal run `git clone https://github.com/hrgweb/ota-exam.git`.
+1. Clone the repo: on terminal run `git clone https://github.com/hrgweb/ota-exam.git` and `cd ota-exam`.
 
-    1.1. Once cloned. Create a copy of .env file from .env.example by running `cp .env.example .env`.
+    1.1. Check out to branch `feature/ota-exam`.
 
-2. Check out to branch `feature/ota-exam`.
+2. Create a copy of .env file from .env.example by running `cp .env.example .env`
 
 > If using Docker Desktop
 
-3. Make sure you are in the working directory. Then in terminal run `docker run --rm \
-    -u "$(id -u):$(id -g)" \
-    -v "$(pwd):/var/www/html" \
-    -w /var/www/html \
-    laravelsail/php83-composer:latest \
-    composer install --ignore-platform-reqs
-   `.
+3. Make sure you are in the working directory. Then in terminal run `docker run --rm
+    -u "$(id -u):$(id -g)"
+    -v "$(pwd):/var/www/html"
+    -w /var/www/html
+    laravelsail/php83-composer:latest
+    composer install --ignore-platform-reqs`
 
     This will install packages for app requirements.
 4. Next run `sail up -d` and `sail artisan key:generate`.
