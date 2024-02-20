@@ -56,3 +56,5 @@
         }
     `.
 5. **DELETE** - Remove a note `http://localhost:8010/api/notes/{id}`.
+
+> Note: Make sure to refer the running port of the server e.g `http://localhost:8010` or just `http://localhost`. Update it accordingly.
