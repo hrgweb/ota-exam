@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Note;
+use App\Services\NoteService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -12,7 +13,7 @@ class NoteController extends Controller
     public function index()
     {
         try {
-            $notes = Note::all();
+            $notes= NoteService::make()->fetch();
             return response()->json($notes, 200);
         } catch (Exception $e) {
             Log::error($e->getMessage());
