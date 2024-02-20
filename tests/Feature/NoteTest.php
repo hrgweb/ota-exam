@@ -21,11 +21,11 @@ class NoteTest extends TestCase
         $this->assertEquals(2, count($response->json()));
     }
 
-    public function test_find_a_note():void
+    public function test_find_a_note(): void
     {
-        $note = Note::factory()->create();
+        $notes = Note::factory(3)->create();
 
-        $this->getJson(route('notes.show', ['note' => $note->id]))->assertOk();
+        $this->getJson(route('notes.show', ['note' => 2]))->assertOk();
     }
 
     public function test_can_add_note(): void

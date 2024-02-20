@@ -20,9 +20,13 @@ class NoteController extends Controller
         }
     }
 
-    public function show(Note $note)
+    public function show(int $id)
     {
         try {
+            $note = Note::find($id);
+
+            if (!$note) throw new Exception('No note found.');
+
             return response()->json($note, 200);
         } catch (Exception $e) {
             Log::error($e->getMessage());
