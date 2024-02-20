@@ -20,6 +20,16 @@ class NoteController extends Controller
         }
     }
 
+    public function show(Note $note)
+    {
+        try {
+            return response()->json($note, 200);
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json($e->getMessage(), 500);
+        }
+    }
+
     public function store()
     {
         try {
