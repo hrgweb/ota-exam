@@ -21,4 +21,32 @@ class NoteService
     {
         return Note::all();
     }
+
+    public static function find(int $id)
+    {
+        $note = Note::find($id);
+
+        if (!$note) throw new Exception('No note found.');
+
+        return $note;
+    }
+
+    public function save()
+    {
+        return Note::create($this->request);
+    }
+
+    public function update()
+    {
+        // $note->note = $validated['note'];
+        // $note->description = $validated['description'];
+        // $note->save();
+
+        return Note::where('id', $this->request['id'])->update($this->request);
+    }
+
+    public function remove()
+    {
+        Note::destroy($this->request['id']);
+    }
 }
